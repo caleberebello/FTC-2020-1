@@ -24,6 +24,20 @@ def timestamp(entrada):
     else:
         return False
 
+def mensagem(entrada):
+    if re.search(r'[\w.-]+@[\w.-]+',entrada):
+        return True
+    elif re.search(r'<.+?>',entrada):
+        return True
+    elif re.search(r'milionário|empréstimo|loteria|banco|herança|seguidor|desconto',entrada):
+        return True
+    elif re.search(r'\w{11,}',entrada):
+        return True
+    elif re.search(r'[.,;]{15,}',entrada):
+        return True
+    else:
+        return False    
+    
 entrada = input()
 while entrada != '-----endmessage-----':
     if entrada != '-----beginmessage-----':

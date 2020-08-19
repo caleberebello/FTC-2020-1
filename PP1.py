@@ -1,5 +1,4 @@
 import re
-#import time
 
 def beginmessage(bgm):
     if re.search(r'[-]{5}beginmessage[-]{5}',bgm):
@@ -13,7 +12,7 @@ def remetente(entrada):
     else:
         return False
 
-def destinatário(entrada):
+def destinatario(entrada):
     if re.search(r'to: [\w.-]+@[\w.-]+', entrada):
         return True
     else:
@@ -90,36 +89,10 @@ data_hora = conteudo.readline()
 sp = conteudo.readline()
 msg = conteudo.read()
 
-vetor = [beginmessage(bgm),remetente(rem),destinatário(dest),verificar_IP(ip),timestamp(data_hora),separador(sp),mensagem(msg)]
+vetor = [beginmessage(bgm),remetente(rem),destinatario(dest),verificar_IP(ip),timestamp(data_hora),separador(sp),mensagem(msg)]
 
 
 if vetor == [True,True,True,True,True,True,True]:
     print("ham")
 else:
     print("spam")
-
-'''
-print(bgm)
-time.sleep(0.5)
-print(rem)
-
-time.sleep(0.5)
-print(dest)
-
-time.sleep(0.5)
-print(ip)
-
-time.sleep(0.5)
-print(data_hora)
-
-time.sleep(0.5)
-print(sp)
-
-time.sleep(0.5)
-print(msg)
-
-time.sleep(0.5)
-print(ed)
-
-print(vetor)
-'''
